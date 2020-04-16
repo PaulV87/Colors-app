@@ -1,18 +1,26 @@
 import React, { Component } from 'react';
+import { Route, Switch } from 'react-router-dom';
 import Palette from './Palette';
 import seedColors from './seedColors';
 import { generatePalette } from './colorHelpers';
-import { render } from 'react-dom';
+
 
 class App extends Component {
   render() {
     console.log(generatePalette(seedColors[4]));
-    return (
-      <div className="">
-        <Palette palette={generatePalette(seedColors[4])} />
-      </div>
+    return (     
+        <Switch>
+          <Route exact path="/" render={() => <h1>Palette list goes here</h1>}/>
+          <Route exact path="/palette/:id" render={() => <h1>Individual pallete</h1>} />
+        </Switch>   
     );
   }  
 }
+
+    /* 
+       <div className="">
+        <Palette palette={generatePalette(seedColors[4])} />
+      </div>
+       */
 
 export default App;
