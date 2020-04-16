@@ -13,3 +13,13 @@ npm install --save chroma-js
 import:
 import chroma from "chroma-js";
 Usage:
+
+Slider - https://www.npmjs.com/package/rc-slider
+install:
+npm install --save rc-slider
+import:
+import Slider, { Range } from 'rc-slider';
+// We can just import Slider or Range to reduce bundle size
+// import Slider from 'rc-slider/lib/Slider';
+// import Range from 'rc-slider/lib/Range';
+import 'rc-slider/assets/index.css';
