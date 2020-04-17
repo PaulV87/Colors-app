@@ -23,3 +23,11 @@ import Slider, { Range } from 'rc-slider';
 // import Slider from 'rc-slider/lib/Slider';
 // import Range from 'rc-slider/lib/Range';
 import 'rc-slider/assets/index.css';
+
+Material ui - https://material-ui.com/
+
+install icons:
+  npm install --save @material-ui/icons
+
+install styles:
+npm install @material-ui/styles
