@@ -1,4 +1,4 @@
-.ColorBox {
+/*.ColorBox {
   width: 20%;
   height: 25%;
   margin: 0 auto;
@@ -7,6 +7,7 @@
   cursor: pointer;
   margin-bottom: -3.5px;
 } 
+*/
 
 .copy-button, .back-btn {
   width: 100px;
@@ -27,7 +28,7 @@
   border: none;
   text-decoration: none;
 }
-
+/*
 .copy-button {
   opacity: 0;
 }
@@ -126,7 +127,7 @@
   font-size: 2rem;
   font-weight: 100;
 }
-
+*/
 .SingleColorPalette .ColorBox {
   height: 50%;
 }
