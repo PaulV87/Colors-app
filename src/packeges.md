@@ -30,4 +30,12 @@ install icons:
   npm install --save @material-ui/icons
 
 install styles:
-npm install @material-ui/styles
+npm install --save @material-ui/styles
+
+install form validator 
+npm install --save react-material-ui-form-validator
+
+
+React Color - https://casesandberg.github.io/react-color/
+install 
+npm install --save react-color
