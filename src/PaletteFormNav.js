@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import PaletteMetaForm from './PaletteMetaForm';
 import classNames from "classnames";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import AppBar from "@material-ui/core/AppBar";
@@ -24,6 +25,7 @@ const styles = theme => ({
     }),
     flexDirection: "row",
     justifyContent: "space-between",
+    alignItems: "center",
     height: "64px",
   },
   appBarShift: {
@@ -39,33 +41,35 @@ const styles = theme => ({
     marginRight: 20
   },
   navBtns: {
+    marginRight: "1rem",
+    "& a":{
+      textDecoration: "none"
+    }    
+  },
+  button: {
+    margin: "0 0.5rem",    
+  },
 
-  }
 })
 
 class PaletteFormNav extends Component {
   constructor(props){
     super(props);
-    this.state = { newPaletteName: "" }
-    this.handleChange = this.handleChange.bind(this);
+    this.state = { formShowing: false };  
+    this.showForm = this.showForm.bind(this);
+    this.hideForm = this.hideForm.bind(this); 
   }
 
-  componentDidMount() {
-    ValidatorForm.addValidationRule('isPaletteNameUnique', value =>
-      this.props.palettes.every(
-        ({ paletteName }) => paletteName.toLowerCase() !== value.toLowerCase()
-      )
-    );
-  } 
+  hideForm() {
+    this.setState({ formShowing: false });
+  }
 
-  handleChange(evt) {
-    this.setState({ 
-      [evt.target.name]: evt.target.value
-     });
+  showForm() {
+    this.setState({ formShowing: true });
   }
 
   render() {
-    const { classes, open } = this.props;
+    const { classes, open, palettes, handleSubmit } = this.props;
     const { newPaletteName} = this.state;
     return(
       <div className={classes.root}>
@@ -91,23 +95,18 @@ class PaletteFormNav extends Component {
             </Typography>
             
           </Toolbar>
-          <div className={classes.navBtns}>
-              <ValidatorForm onSubmit={() => this.props.handleSubmit(newPaletteName)}>
-                <TextValidator 
-                  value={this.state.newPaletteName}
-                  name="newPaletteName"
-                  label="Palette Name"
-                  onChange={this.handleChange}
-                  validators={["required", "isPaletteNameUnique"]}
-                  errorMessages={["Enter palette name", "Palette name already used"]}
-                />
-                <Button variant="contained" color="primary" type="submit" >Save Palette</Button>              
-              </ValidatorForm>  
+            <div className={classes.navBtns}>             
               <Link to="/">
-                <Button variant="contained" color="secondary">Go Back</Button>
+                <Button variant="contained" color="secondary" className={classes.button}>Go Back</Button>
               </Link>    
+              <Button variant="contained" color="primary" onClick={this.showForm} className={classes.button}>
+                Save
+              </Button>
             </div>      
         </AppBar>
+        {this.state.formShowing && (
+          <PaletteMetaForm palettes={palettes} handleSubmit={handleSubmit} hideForm={this.hideForm}/> 
+        )}
       </div>
     )
   }
