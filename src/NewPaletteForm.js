@@ -26,7 +26,6 @@ class NewPaletteForm extends Component {
       open: true,
       colors: this.props.palettes[0].colors,
     };
-
     this.addNewColor = this.addNewColor.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -42,8 +41,6 @@ class NewPaletteForm extends Component {
   handleDrawerClose = () => {
     this.setState({ open: false });
   };
-
-
 
   addNewColor(newColor) {
     this.setState({ 
