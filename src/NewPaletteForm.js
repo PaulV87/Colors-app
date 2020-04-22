@@ -13,8 +13,6 @@ import Button from "@material-ui/core/Button";
 import { arrayMove } from 'react-sortable-hoc';
 import styles from './styles/NewPaletteFormStyles';
 
-
-
 class NewPaletteForm extends Component {
   static defaultProps = {
     maxColors: 20

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -35,13 +34,12 @@ class PaletteMetaForm extends Component {
       [evt.target.name]: evt.target.value
      });
   }
-
   
-   handleClickOpen = () => {
-      this.setState({ open: true})
+  handleClickOpen = () => {
+    this.setState({ open: true})
   };
 
-   handleClose = () => {
+  handleClose = () => {
     this.setState({open: false})
   };
 
@@ -60,15 +58,15 @@ class PaletteMetaForm extends Component {
 
   render() {
     const {newPaletteName, stage } = this.state;
-    const { hideForm, handleSubmit } = this.props;
+    const { hideForm } = this.props;
     return (
       <div>
-        <Dialog open={this.state.stage === "emoji"} onClose={hideForm}>
+        <Dialog open={stage === "emoji"} onClose={hideForm}>
           <DialogTitle id="form-dialog-title">Pick a Palette Emoji</DialogTitle>
           <Picker title="Pick a palette emoji" onSelect={this.savePalette} />
         </Dialog>
 
-        <Dialog open={this.state.stage === "form"} onClose={hideForm} aria-labelledby="form-dialog-title">
+        <Dialog open={stage === "form"} onClose={hideForm} aria-labelledby="form-dialog-title">
           <DialogTitle id="form-dialog-title">Choose a Palette Name</DialogTitle>
           <ValidatorForm onSubmit={this.showEmojiPicker}>
           <DialogContent>
