@@ -39,3 +39,15 @@ npm install --save react-material-ui-form-validator
 React Color - https://casesandberg.github.io/react-color/
 install 
 npm install --save react-color
+
+
+Emoji Mark - https://github.com/missive/emoji-mart
+
+npm install --save emoji-mart
+
+Background image from https://www.svgbackgrounds.com/
+
+React Transition Group - https://reactcommunity.org/react-transition-group/
+install
+npm install react-transition-group --save
+usage
